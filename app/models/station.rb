@@ -5,5 +5,5 @@ class Station < ActiveRecord::Base
   validates :station_id, uniqueness: true
   validates_presence_of :name, :station_id
 
-  scope :filter_stations, ->(count) { limit(count).order('name DESC') }
+  scope :filter_stations, ->(count) { order('name DESC').limit(count) }
 end

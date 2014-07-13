@@ -283,8 +283,15 @@ lines = {
 
 lines.each do |train, stops|
   stops.each do |station|
-    train = Train.find_or_create_by(name: train)
-    station = Station.find_or_create_by(name: station[:name], station_id: station[:id])
+    train   = Train.find_or_create_by(name: train)
+    # station = Station.find_or_create_by(name: station[:name], station_id: station[:id])
+
+    # use conditional to prevent duplicate stations
+    if Station.exists?(name: station[:name])
+      station = Station.find_by(name: station[:name])
+    else
+      station = Station.create(name: station[:name], station_id: station[:id])
+    end
 
     train.stations << station
   end
