@@ -1,12 +1,89 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
-
-    <%= text_field_tag :station, nil, autocomplete: "off", placeholder: "search" %>
+    <%= text_field_tag :station, nil, autocomplete: "off", placeholder: "search stations..." %>
     <ul id="results"></ul>
-
   </div>
 
-  <div class="col-xs-6 col-sm-6">
+  <div class="col-xs-12 col-sm-8">
+    <!-- show view -->
+    <h2 class="station-title">Pennsylvania Av</h2>
+    <h3>Lines</h3>
+    <span class="line">1</span>
+    <span class="line">2</span>
+    <span class="line">3</span>
+
+    <div class="train-time">
+      <h3>North - Harlem - 148 St</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Line</th>
+            <th>Status</th>
+            <th>Arrive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">2</td>
+            <td>All trains running on time.</td>
+            <td>20 Min</td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td>All trains running on time.</td>
+            <td>20 Min</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>South - New Lots Av</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Line</th>
+            <th>Status</th>
+            <th>Arrive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">2</td>
+            <td>All trains running on time.</td>
+            <td>20 Min</td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td>All trains running on time.</td>
+            <td>20 Min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- home page view -->
+<!--     <h1 class="station-title m-b-md">Choose a line:</h1>
+
+    <div class="row">
+      <div class="col-xs-6 col-sm-3">
+        <span class="line line-big">1</span>
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+        <span class="line line-big">2</span>
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+        <span class="line line-big">2</span>
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+        <span class="line line-big">S</span>
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+        <span class="line line-big">L</span>
+      </div>
+    </div> -->
 
   </div>
 </div>
