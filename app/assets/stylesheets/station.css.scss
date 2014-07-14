@@ -70,6 +70,7 @@ canvas {
 ul#results {
   padding: 0px;
   list-style: none;
+  background: #fff;
 }
 #results li {
   padding: 2px 0;
@@ -83,7 +84,7 @@ ul#results {
   background: #2870b0;
   text-shadow: rgba(0,0,0,0.125) 0 1px 3px;
 }
-#results li:first-child {
+#results li.active {
   background: #2870b0;
   text-shadow: rgba(0,0,0,0.125) 0 1px 3px;
 }
@@ -99,10 +100,7 @@ ul#results {
 }
 #results li a:hover, #results li a:focus {
   text-decoration: none;
-}
-#results li:first-child > a {
-  color: #fff !important;
-}
+} 
 
 // train info // right content
 .station-title {

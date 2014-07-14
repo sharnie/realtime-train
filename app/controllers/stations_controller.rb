@@ -5,15 +5,7 @@ class StationsController < ApplicationController
   end
 
   def train_station
-    result   = {}
-    station = Station.find_by(station_id: params[:id])
-    station.trains.each do |train|
-      result[station.station_id] ||= { 
-        station: station,
-        trains: []
-      }
-      result[station.station_id][:trains] << { id: train.id, name: train.name }
-    end
-    render json: result.to_json
+    station = Station.find_by_station(params[:id])
+    render json: station.to_json
   end
 end

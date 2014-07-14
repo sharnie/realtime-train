@@ -31,17 +31,67 @@ $(document).on('page:change', function(){
     e.preventDefault();
     e.stopPropagation();
 
-    var _this      = $(this),
-        station_id = _this.data('station-id'),
-        url        = '/stations/'+ station_id +'/trains.json';
+    var _this           = $(this),
+        station_id      = _this.data('station-id'),
+        url             = '/stations/'+ station_id +'/trains.json',
+        content         = $('#content'),
+        templateString  = [
+          '<h2 class="station-title"><%= station.name %></h2>',
+          '<h3>Lines</h3>',
+          '<div class="line-group">',
+          '  <span class="line">1</span>',
+          '  <span class="line">2</span>',
+          '  <span class="line">3</span>',
+          '</div>',
+          '<div class="train-time">',
+          '  <h3>North - Harlem - 148 St</h3>',
+          '  <table class="table">',
+          '    <thead>',
+          '      <tr>',
+          '        <th class="text-center">Line</th>',
+          '        <th>Status</th>',
+          '        <th>Arrive</th>',
+          '      </tr>',
+          '    </thead>',
+          '    <tbody>',
+          '      <tr>',
+          '        <td class="text-center">2</td>',
+          '        <td>All trains running on time.</td>',
+          '        <td>20 Min</td>',
+          '      </tr>',
+          '    </tbody>',
+          '  </table>',
+          '  <h3>South - New Lots Av</h3>',
+          '  <table class="table">',
+          '    <thead>',
+          '      <tr>',
+          '        <th class="text-center">Line</th>',
+          '        <th>Status</th>',
+          '        <th>Arrive</th>',
+          '      </tr>',
+          '    </thead>',
+          '    <tbody>',
+          '      <tr>',
+          '        <td class="text-center">2</td>',
+          '        <td>All trains running on time.</td>',
+          '        <td>20 Min</td>',
+          '      </tr>',
+          '    </tbody>',
+          '  </table>',
+          '</div>',
+        ];
 
     $.getJSON(url).success(function(data){
-      $('.station-title').html(data[station_id].station.name);
-        // console.log();
-        console.log()
-      _.each(data[station_id].trains, function(train){
-        console.log(train);
-      });
+      var html = [];
+      var template = _.template(templateString.join("\n"));
+
+        html += template({station: data.station});
+        content.html(html);
+
+        _.each(data.trains, function(train){
+          $('.line-group').append('<span class="line">'+ train.name +'</span>');
+        });
+
     });
 
   });
