@@ -16,12 +16,19 @@ class Station < ActiveRecord::Base
       station: {
         name: station.name,
         station_id: station.station_id,
-        trains: []
+        trains: [],
       }
     }
 
     station.trains.each do |train|
-      result[:station][:trains] << { id: train.id, name: train.name }
+      result[:station][:trains] << {
+        id: train.id,
+        name: train.name,
+        bound: {
+          south: train.stations.last.name,
+          north: train.stations.first.name,
+        }
+      }
     end
 
     result

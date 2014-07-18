@@ -6,7 +6,7 @@
 
   <div id="content" class="col-xs-12 col-sm-8">
     <!-- show view -->
-<!--     <h2 class="station-title">Pennsylvania Av</h2>
+    <h2 class="station-title">Pennsylvania Av</h2>
     <h3>Lines</h3>
 
     <div class="line-group">
@@ -16,8 +16,10 @@
     </div>
 
     <div class="train-time">
-      <h3>North - Harlem - 148 St</h3>
-      <table class="table">
+
+      <!-- north bound -->
+      <h3 class="north">North - Harlem - 148 St</h3>
+      <table id="north-bound-table" class="table">
         <thead>
           <tr>
             <th class="text-center">Line</th>
@@ -34,8 +36,9 @@
         </tbody>
       </table>
 
-      <h3>South - New Lots Av</h3>
-      <table class="table">
+      <!-- south bound -->
+      <h3 class="south">South - New Lots Av</h3>
+      <table id="south-bound-table" class="table">
         <thead>
           <tr>
             <th class="text-center">Line</th>
@@ -51,7 +54,8 @@
           </tr>
         </tbody>
       </table>
-    </div> -->
+
+    </div><!-- .train-time -->
 
     <!-- home page view -->
 <!--     <h1 class="station-title m-b-md">Choose a line:</h1>
@@ -80,17 +84,3 @@
 
   </div>
 </div>
-
-<!-- 
-<table class="table table-striped">
-  <% @trains.each do |train| %>
-    <% train.stations.each do |station| %>
-
-    <tr>
-      <td><%= station.name %></td>
-      <td><%= train.name %></td>
-    </tr>
-
-    <% end %>
-  <% end %>
-</table> -->
